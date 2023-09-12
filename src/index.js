@@ -60,4 +60,24 @@ client.on("messageCreate", (message) => {
   }
 });
 
+client.on("messageCreate", (message) => {
+  if (message.author.bot) {
+    return;
+  }
+
+  if (message.content === "good morning") {
+    message.reply("https://tenor.com/bRRVB.gif");
+  }
+});
+
+client.on("interactionCreate", (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === "hug") {
+    interaction.reply(
+      "https://tenor.com/view/nekopara-chocola-vanilla-hug-gif-24202821"
+    );
+  }
+});
+
 client.login(process.env.token);
